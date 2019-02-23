@@ -1,0 +1,9 @@
+<td width="10%">
+  {{checkbox-component checked=task.completed task=task updateTaskStatus="saveTask"}}
+</td>
+{{text-field-component value=task.description task=task save="saveTask" editing="editing" visible=visible}}
+<td width="10%">
+  {{#if visible}}
+    <a {{action 'deleteTask' task}} class="cursor-pointer"><i class="fa fa-trash"></i></a>
+  {{/if}}
+</td>

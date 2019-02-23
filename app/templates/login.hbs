@@ -1,0 +1,17 @@
+<div class="card sign-in">
+  <div class="card-body">
+    <div class="card-header">
+      <div class="w-50">
+        <h3 class="card-title" {{action (mut newUser) false}}>Log In</h3>
+      </div>
+      <div class="w-50">
+        <h3 class="card-title" {{action (mut newUser) true}}>Sign Up</h3>
+      </div>
+    </div>
+    {{#if newUser}}
+      <p>New User</p>
+    {{else}}
+      <p>Existing User</p>
+    {{/if}}
+  </div>
+</div>

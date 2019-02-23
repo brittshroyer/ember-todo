@@ -1,0 +1,7 @@
+{{#if editing}}
+  {{input type="text" value=task.description placeholder="Task name" class="input-field"}}
+  <a {{action 'editTaskName'}} class="cursor-pointer"><i class="fa fa-check"></i></a>
+{{else}}
+  <h6 class="m-0 task-name {{if task.completed 'line-through'}}">{{task.description}}</h6>
+  <a {{action 'editTaskName'}} class="cursor-pointer {{if task.completed 'invisible'}}"><i class="fa fa-pencil-alt"></i></a>
+{{/if}}

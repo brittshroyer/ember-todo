@@ -1,0 +1,93 @@
+body {
+  background: #fff;
+  font-family: 'Nunito', sans-serif !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+table {
+  width: 400px;
+}
+
+table tr {
+  line-height: 37px;
+}
+
+table tr td {
+  max-width: 300px;
+  white-space: nowrap;
+}
+
+
+.ember-text-field {
+  height: 35px;
+  width: 90%;
+  padding: 6px;
+  border: none;
+  /* white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+}
+
+.task-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task-description::after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 0px;
+  height: 1px;
+  background: #000;
+  transition: width .3s;
+  margin-top: 13px;
+}
+
+.task-description.editing::after {
+  width: 300px;
+}
+
+form {
+  height: 85px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input:focus {
+  outline: none !important;
+}
+
+form input.ember-text-field {
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 2px 4px;
+  border-radius: 4px;
+  width: 300px;
+}
+
+form input.ember-text-field:focus {
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  border-radius: 4px;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+.card.sign-in {
+  margin: auto;
+  width: 400px;
+  height: 300px;
+}
+
+/* .invisible {
+  visibility: none;
+} */
+
+/* form input.ember-text-field:focus {
+  outline: none !important;
+} */
