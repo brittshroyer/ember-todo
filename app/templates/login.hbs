@@ -1,17 +1,77 @@
 <div class="card sign-in">
+  <div class="card-header d-flex justify-content-between align-items-center cursor-pointer">
+    <div class="w-50 text-center border-right"{{action (mut signUp) false}}>Existing User</div>
+    <div class="w-50 text-center" {{action (mut signUp) true}}>New User</div>
+  </div>
   <div class="card-body">
-    <div class="card-header">
-      <div class="w-50">
-        <h3 class="card-title" {{action (mut newUser) false}}>Log In</h3>
+    {{#if signUp}}
+      <div>
+        <p class="text-center">Sign Up</p>
+        <form id="form-signup" class="p-t-15" role="form" {{action "signUp" on="submit"}}>
+          <div class="form-group form-group-default">
+            <label>Email</label>
+            <div class="controls">
+              {{input id="identification" value=email type="text" class="form-control" placeholder="Email Address" name="email"}}
+            </div>
+          </div>
+          <div class="form-group form-group-default">
+            <label>Password</label>
+            <div class="controls">
+              {{input id="password" type="password" value=password class="form-control" placeholder="Password" name="credentials"}}
+            </div>
+          </div>
+          {{!-- <small>{{link-to "Forgot your password?" "request-password" class="text-right right"}}</small> --}}
+          <br/>
+          <div class="sign-in-btn">
+
+            <button class="btn btn-primary btn-cons w-100" type="submit">Sign Up</button>
+          </div>
+        </form>
       </div>
-      <div class="w-50">
-        <h3 class="card-title" {{action (mut newUser) true}}>Sign Up</h3>
+    {{else}}
+      <div>
+        <p class="text-center">Log In</p>
+        <form id="form-login" class="p-t-15" role="form" {{action "signUp" on="submit"}}>
+          <div class="form-group form-group-default">
+            <label>Email</label>
+            <div class="controls">
+              {{input id="identification" value=email type="text" class="form-control" placeholder="Email Address" name="email"}}
+            </div>
+          </div>
+          <div class="form-group form-group-default">
+            <label>Password</label>
+            <div class="controls">
+              {{input id="password" type="password" value=password class="form-control" placeholder="Password" name="credentials"}}
+            </div>
+          </div>
+          {{!-- <small>{{link-to "Forgot your password?" "request-password" class="text-right right"}}</small> --}}
+          <br/>
+          <div class="sign-in-btn">
+            {{#if session.isWorking}}
+              <p>...Signing In</p>
+            {{/if}}
+            <button class="btn btn-primary btn-cons w-100" type="submit" {{action 'login'}}><i class="fa fa-sign-in fa-lg mr-1"></i>Log In</button>
+          </div>
+        </form>
       </div>
+    {{/if}}
+  </div>
+</div>
+
+{{!-- <div class="card sign-in">
+  <div class="d-flex flex-row ">
+    <div class="text-center w-50 p-4">
+      <h6 class="card-title" {{action (mut newUser) false}}>Log In</h6>
     </div>
+    <div class="text-center w-50 p-4">
+      <h6 class="card-title" {{action (mut newUser) true}}>Sign Up</h6>
+    </div>
+  </div>
+  <div class="card-body">
     {{#if newUser}}
       <p>New User</p>
     {{else}}
       <p>Existing User</p>
     {{/if}}
   </div>
-</div>
+</div> --}}

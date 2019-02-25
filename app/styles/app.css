@@ -78,10 +78,26 @@ form input.ember-text-field:focus {
 .line-through {
   text-decoration: line-through;
 }
+
 .card.sign-in {
   margin: auto;
   width: 400px;
-  height: 300px;
+  height: 400px;
+}
+
+.card.welcome-card {
+  margin: auto;
+  width: 400px;
+  height: 250px;
+}
+
+.sign-in-btn {
+  width: 300px;
+}
+
+.global-header {
+  height: 45px;
+  font-size: 12px;
 }
 
 /* .invisible {

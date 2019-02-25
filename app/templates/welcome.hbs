@@ -1,0 +1,18 @@
+<div class="card welcome-card d-flex flex-column">
+  <div class="card-header text-center">
+    <h3 class="m-0">Welcome!</h3>
+  </div>
+  <div class="card-body">
+    <form>
+      <div class="form-group form-group-default">
+        <label>Enter Username</label>
+        <div class="controls">
+          {{input type="text" value=username placeholder="Username"}}
+        </div>
+      </div>
+      <div class="sign-in-btn">
+        <button class="btn btn-primary btn-cons w-100" {{action 'createUserModel' username}}>Get Started</button>
+      </div>
+    </form>
+  </div>
+</div>

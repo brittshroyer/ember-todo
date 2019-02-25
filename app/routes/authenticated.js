@@ -1,16 +1,27 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+
   firebaseApp: Ember.inject.service(),
 
-  model() {
-    const firebaseApp = this.get('firebaseApp');
+  beforeModel() {
+    const isAuthenticated = this.get('session.isAuthenticated');
 
-    console.log('%j', firebaseApp.auth());
-    // return firebaseApp.auth().then(({currentUser}) => {
-    //     console.log('current user', currentUser);
-    //     currentUser ? this.store.query('comment', { filter: { user: currentUser.uid} }) : reject()
-    // });
-  }
+    // console.log('%j session on auth', this.get('session.isAuthenticated'));
+    if (!isAuthenticated) {
+      // console.log('not authenticated, transitioning to login');
+      this.transitionTo('login');
+    }
+  },
+
+  // model() {
+  //   const uid = this.get('session.currentUser.uid');
+  //   console.log('curren user', currentUser);
+  //   //get user model from firebase
+  //   // return this.store.findRecord('user', uid);
+  // },
+  //
+  // //redirect back to login if there is a session but no model found
+
 
 });

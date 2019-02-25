@@ -13,14 +13,16 @@ Router.map(function() {
 
   this.route('logout');
 
-  this.route('authenticated', { path: '/' }, function() {
-    this.route('layout', { resetNamespace: true, path: '' }, function() {
-      this.route('todos', { resetNamespace: true,  path: '/users/:user_id/todos' });
+  this.route('authenticated', { path: '' }, function() {
+
+    this.route('welcome', { resetNamespace: true, path: '/welcome' });
+    this.route('layout', { resetNamespace: true, path: '/:user_id' }, function() {
+      this.route('account');
+      this.route('todos');
     });
   });
 
   this.route('404', { path: '/*path' });
-
 });
 
 export default Router;
