@@ -9,16 +9,16 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('authenticated', { path: '/' }, function() {
     this.route('login', { resetNamespace: true } );
-  });
+    // });
 
-  this.route('logout');
+    this.route('logout');
 
-  this.route('authenticated', { path: '' }, function() {
+  // this.route('authenticated', { path: '/' }, function() {
 
-    this.route('welcome', { resetNamespace: true, path: '/welcome' });
-    this.route('layout', { resetNamespace: true, path: '/:user_id' }, function() {
-      this.route('account');
-      this.route('todos');
+    this.route('welcome', { resetNamespace: true, path: 'welcome' });
+    this.route('layout', { resetNamespace: true, path: '' }, function() {
+      this.route('account', { path: '/:user_id/account' });
+      this.route('todos', { path: '/:user_id/todos' });
     });
   });
 

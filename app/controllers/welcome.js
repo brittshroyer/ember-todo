@@ -16,16 +16,15 @@ export default Controller.extend({
         const email = firebase.auth().currentUser.email;
         console.log('email', email);
         const user = Ember.Object.create({
-          email,
-          username
+          email, username
         });
-
         const userRecord = this.store.createRecord('user', user);
-
+        console.log('userRecord', userRecord);
         return userRecord.save().then(user => {
+          console.log('userid', user.get('id'));
           const uid = user.get('id');
           // console.log('user', user);
-          this.transitionToRoute(`/${uid}`);
+          this.transitionToRoute(`/${uid}/todos`);
           // this.transitionToRoute(`layout`);
         }).catch(err => {
           // this.get('notify').alert('Something went wrong creating a new user');

@@ -4,6 +4,7 @@ import { hasMany } from 'ember-data/relationships';
 
 export default DS.Model.extend({
 
+  email: attr('string'),
   username: attr('string'),
   tasks: hasMany('task')
 

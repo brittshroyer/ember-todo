@@ -2,22 +2,20 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
-  model(params) {
-    const uid = params.user_id;
-    // console.log('firing layout model');
-    return this.store.findRecord('user', uid);
+  firebaseApp: Ember.inject.service(),
+
+  model() {
+    this._super(...arguments);
+  },
+
+  setupController(controller, model) {
+    const user = this.modelFor('authenticated');
+    this._super(controller, user);
   },
 
   afterModel(model) {
-    const isAuthenticated = this.get('session.isAuthenticated');
-    const uid = model.get('id');
+    const uid = model.id;
 
-    if (!model && isAuthenticated) {
-      this.get('session').close();
-      this.transitionTo('login');
-    } else {
-      console.log('transitioning');
-      this.transitionTo(`/${uid}/todos`);
-    }
+    this.transitionTo(`/user/${uid}/todos`);
   }
 });
